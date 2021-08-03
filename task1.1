@@ -1,0 +1,26 @@
+// C++ code
+//
+int sensorState = 0;
+
+//initialize board
+void setup()
+{
+  pinMode(3, INPUT);
+  pinMode(13, OUTPUT);
+  Serial.begin(9600);
+
+}
+
+void loop()
+{
+  //read the PIR sensir state(digital  read the state of the sensor/digital input
+  sensorState = digitalRead(3);
+  // if the sensor's pin state is high then => LED ON
+  if (sensorState == HIGH) {
+    digitalWrite(13, HIGH);
+    Serial.println("SENSOR IS ON");
+  } else {
+    digitalWrite(13, LOW);
+  }
+  delay(50); // delay
+}
